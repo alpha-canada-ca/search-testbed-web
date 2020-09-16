@@ -16,6 +16,8 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
+      run: mvn install --file parent/pom.xml
+    - name: Build with Maven
       run: mvn install --file pom.xml
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
